@@ -21,7 +21,7 @@ Skills:
 - IOC extraction
 - Elastic KQL detection
 
-[View Part 1 Investigation]
+[View Part 1 Investigation](./Part1-PhisingAnalysis/README.md)
 
 ### Part 2
 Coming soon.

@@ -810,7 +810,7 @@ Piraeus, Greece
 
 ### Extraction Location
 
-![Emergency extraction location](images/extraction-map.png)
+![Emergency extraction location](images/extraction-map.jpg)
 
 *Figure 5: Mapping of the emergency extraction coordinates associated with Driver_BUD.*
 

@@ -112,7 +112,7 @@ These communications provided both technical indicators and broader contextual i
 
 ### Forum Access
 
-![Private Winter Blackout forum](images/forum-home.png)
+![Private Winter Blackout forum](images/forum-home.jpg)
 
 *Figure 1: Private forum used by participants involved in Operation Winter Blackout.*
 
@@ -161,7 +161,7 @@ The forum member roster identified **five participants** involved in Operation W
 
 ### Forum Member Roster
 
-![Forum member roster](images/forum-members.png)
+![Forum member roster](images/forum-members.jpg)
 
 *Figure 2: Forum roster identifying the five participants and their operational roles.*
 
@@ -715,7 +715,7 @@ The post contained the coordinates:
 
 ### Source Evidence
 
-![Driver BUD staging post](images/staging-location-post.png)
+![Driver BUD staging post](images/staging-location-post.jpg)
 
 *Figure 3: Driver_BUD discussing the remote staging property and providing geographic coordinates.*
 
@@ -725,7 +725,7 @@ The post contained the coordinates:
 
 The coordinates were mapped using public mapping services to determine the physical location associated with the staging site.
 
-![Mapped staging location](images/staging-location-map.png)
+![Mapped staging location](images/staging-location-map.jpg)
 
 *Figure 4: Geospatial analysis of the coordinates recovered from the forum.*
 

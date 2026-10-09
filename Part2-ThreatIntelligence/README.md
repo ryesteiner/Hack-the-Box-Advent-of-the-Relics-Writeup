@@ -1078,11 +1078,11 @@ This demonstrates how threat intelligence can expand an endpoint investigation i
 
 ## Previous Investigation
 
-[Part 1 — Initial Access & PowerShell Analysis](../Part-1/README.md)
+[Part 1 — Initial Access & Phishing/PowerShell Analysis](../Part-1/README.md)
 
 ## Next Investigation
 
-Part 3 — Coming Soon
+[Part 3 — Recovered Drive from hideout](../Part3-DFIR/README.md)
 
 ---
 

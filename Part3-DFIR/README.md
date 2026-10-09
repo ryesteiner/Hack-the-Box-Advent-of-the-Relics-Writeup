@@ -421,7 +421,7 @@ Recovered metadata showed:
 
 ### Source Evidence
 
-![LUKS2 metadata identified in Autopsy](images/vol6-luks-metadata.png)
+![LUKS2 metadata identified in Autopsy](images/vol6-luks-metadata.jpg)
 
 *Figure 1: Autopsy encryption metadata identifying the LUKS2-protected volume.*
 
@@ -665,7 +665,7 @@ Within that profile was:
 
 ### Source Evidence
 
-![Driver_BUD share directory](images/driver-bud-share.png)
+![Driver_BUD share directory](images/driver-bud-share.jpg)
 
 *Figure 2: `/home/driver_bud/share` identified in the decrypted Linux filesystem.*
 
@@ -746,7 +746,7 @@ At the end of the recovered configuration file was a custom share definition:
 
 ### Source Evidence
 
-![Recovered Samba configuration](images/gospodski-samba-config.png)
+![Recovered Samba configuration](images/gospodski-samba-config.jpg)
 
 *Figure 3: Recovered Samba configuration showing the custom `GOSPODSKI` share mapped to `/home/driver_bud/share` with guest access and browsing enabled.*
 
@@ -812,7 +812,7 @@ log.win-6rrfs6bh6ra
 
 ### Source Evidence
 
-![Samba logs identified in Autopsy](images/samba-logs.png)
+![Samba logs identified in Autopsy](images/samba-logs.jpg)
 
 *Figure 4: Samba log artifacts recovered from the decrypted filesystem.*
 
@@ -884,11 +884,11 @@ xdg-open f4307576_Operation_Winter_Blackout_CLASSIFIED_TRAINING_SERIOUS_v3.pdf
 
 ### Source Evidence
 
-![Recovered Winter Blackout planning document](images/winter-blackout-planning.png)
+![Recovered Winter Blackout planning document](images/winter-blackout-planning.jpg)
 
 *Figure 5: Recovered Winter Blackout planning document showing the Budapest target location and the planned execution window at 23:59:50 on 31 December.*
 
-![Recovered Winter Blackout target list](images/winter-blackout-targets.png)
+![Recovered Winter Blackout target list](images/winter-blackout-targets.jpg)
 
 *Figure 6: Recovered target-acquisition list showing the selected artifacts and total estimated value of €5,960,000.*
 

@@ -76,7 +76,7 @@ Recovered artifacts independently corroborated intelligence from Part 2, includi
 - Cross-source intelligence correlation
 - Forensic reporting
 
-[View Part 3 Digital Forensics Report](./Part3-DigitalForensics/README.md)
+[View Part 3 Digital Forensics Report](./Part3-DFIR/README.md)
 
 ---
 

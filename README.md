@@ -123,7 +123,7 @@ The mission-plan and telemetry findings provided direct technical correlation wi
 - Cross-investigation analysis
 - Forensic reporting
 
-[View Part 4 Drone Forensics Report](./Part4-DroneForensics/README.md)
+[View Part 4 Drone Forensics Report](./Part4-DroneDFIR/README.md)
 
 ---
 

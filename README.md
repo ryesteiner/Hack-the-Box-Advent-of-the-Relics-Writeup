@@ -2,7 +2,7 @@
 
 This repository documents my investigation of the four-part **Advent of the Relics** defensive Sherlock series from Hack The Box.
 
-The series follows a multi-stage incident beginning with a phishing campaign and progressing through malicious execution, threat intelligence, infrastructure analysis, digital forensics, and incident reconstruction.
+The series follows a multi-stage incident beginning with a phishing campaign and progressing through malicious execution, threat intelligence, infrastructure analysis, digital forensics, drone telemetry analysis, and final incident reconstruction.
 
 ## Investigations
 
@@ -53,7 +53,7 @@ Digital forensic examination of a disk recovered from a physical location identi
 
 The evidence was provided as an E01 forensic image containing a Linux system protected by LUKS2 full-volume encryption. The investigation involved evidence validation, raw-image conversion, partition analysis, AES key recovery, LUKS2 decryption, LVM and filesystem analysis, Autopsy examination, file carving, Samba configuration analysis, and recovery of operational documents related to Operation Winter Blackout.
 
-Recovered artifacts independently corroborated intelligence from Part 2, including the `Driver_BUD` alias, the `FROST` activation codeword, the planned execution time `23:59:50`, and additional operational details.
+Recovered artifacts independently corroborated intelligence from Part 2, including the `Driver_BUD` alias, the `FROST` activation codeword, the planned execution time `23:59:50`, Budapest-based operational activity, and references to a modified drone.
 
 **Skills demonstrated:**
 - Digital forensics
@@ -80,9 +80,50 @@ Recovered artifacts independently corroborated intelligence from Part 2, includi
 
 ---
 
-### Part 4
+### Part 4 — Drone Forensics & Flight Reconstruction
 
-Coming soon.
+Digital forensic analysis of a recovered drone linked to the operational planning identified during Part 3.
+
+The investigation focused on identifying the drone telemetry format, interpreting the programmed mission plan, parsing ArduPilot flight data, reconstructing the aircraft's route through Budapest, analyzing significant mission behavior, and identifying the final crash event.
+
+Initial inspection of the recovered `log.bin` file in Ghidra identified the aircraft as an ArduPilot-based `QUAD/X` multicopter running `ArduCopter V4.4.4`. This led to the use of `pymavlink` and `mavlogdump.py` to extract structured flight telemetry.
+
+The investigation identified:
+
+- A programmed route around **Citadella**
+- A **30-second loiter** at mission item `18`
+- A planned Danube crossing near **Elisabeth Bridge**
+- Takeoff coordinates at `47.4819399, 19.0191600`
+- Crash coordinates at `47.4903055, 19.0460476`
+- A total flight duration of `00:10:38.919`
+- A maximum recorded GPS altitude of `377.07 m`
+- A maximum recorded GPS ground speed of `10.24 m/s`
+- A recorded ground-impact speed of `12.93254 m/s`
+
+The mission-plan and telemetry findings provided direct technical correlation with the drone-related planning recovered during Part 3 and completed the transition from adversary planning to recorded physical-system activity.
+
+**Skills demonstrated:**
+- Digital forensics
+- Drone forensics
+- Binary file analysis
+- Ghidra
+- ArduPilot analysis
+- `pymavlink`
+- `mavlogdump.py`
+- Telemetry parsing
+- Mission-plan analysis
+- GPS analysis
+- Flight-path reconstruction
+- Crash-event reconstruction
+- Geospatial analysis
+- Evidence hashing
+- Derived artifact handling
+- Timeline reconstruction
+- Cross-source correlation
+- Cross-investigation analysis
+- Forensic reporting
+
+[View Part 4 Drone Forensics Report](./Part4-DroneForensics/README.md)
 
 ---
 
@@ -131,7 +172,22 @@ Autopsy + PhotoRec Analysis
 Operational Document Recovery
       |
       v
-Cross-Investigation Correlation
+Drone-Related Planning Identified
       |
       v
-Part 4 Investigation
+Recovered Drone Evidence
+      |
+      v
+Ghidra Binary Analysis
+      |
+      v
+ArduPilot / pymavlink Telemetry Parsing
+      |
+      v
+Mission & Flight-Path Reconstruction
+      |
+      v
+Crash Event Analysis
+      |
+      v
+Final Cross-Investigation Correlation

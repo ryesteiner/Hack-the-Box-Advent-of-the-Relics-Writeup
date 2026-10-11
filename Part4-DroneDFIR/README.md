@@ -1,3 +1,4 @@
+```markdown
 # Advent of The Relics 4 — Drone Forensics Investigation
 
 ## Digital Forensics & Flight Telemetry Reconstruction Report
@@ -15,7 +16,7 @@
 
 Part 4 of the Advent of the Relics investigation examined digital evidence recovered from a drone believed to be connected to **Operation Winter Blackout**.
 
-The aircraft was recovered in Budapest after the Part 3 forensic investigation uncovered planning material describing drone-related activity. Its onboard telemetry and mission-plan file were provided for analysis to reconstruct the intended flight, identify significant mission behavior, determine where the aircraft launched and crashed, and examine the terminal event recorded before impact.
+The aircraft was recovered in Budapest after the Part 3 forensic investigation uncovered planning material describing drone-related activity. Its onboard telemetry and mission-plan file were provided for analysis to reconstruct the intended route, identify significant mission behavior, determine where the aircraft launched and crashed, and examine the terminal event recorded before impact.
 
 Two primary evidence files were analyzed:
 
@@ -257,7 +258,7 @@ QUAD/X
 
 indicated an X-configuration quadcopter.
 
-Mission-related strings also showed that the aircraft was executing a structured autonomous mission rather than simply recording unrestricted manual flight.
+Mission-related strings also showed that the aircraft was executing a structured mission rather than simply recording unrestricted manual flight.
 
 This evidence provided the basis for selecting ArduPilot-compatible tooling for further analysis.
 
@@ -323,8 +324,6 @@ contained a predefined flight plan through Budapest.
 
 The mission contained multiple programmed waypoints and specific behavioral instructions rather than a simple point-to-point route.
 
----
-
 ## Citadella Route
 
 Mission-plan analysis showed that the programmed route passed around:
@@ -337,9 +336,7 @@ in the Gellért Hill area of Budapest.
 
 This provided a recognizable geographic reference for validating the mission route.
 
----
-
-# Planned Loiter
+## Planned Loiter
 
 Mission item:
 
@@ -357,7 +354,7 @@ The configured duration was:
 
 ### Assessment
 
-The planned pause indicates that the aircraft was intentionally expected to remain within a defined geographic area before continuing its mission.
+The programmed pause indicates that the aircraft was intentionally expected to remain within a defined geographic area before continuing its mission.
 
 Possible operational purposes could include:
 
@@ -371,9 +368,7 @@ The evidence confirms the programmed loiter but does not independently establish
 
 **Confidence: High for programmed behavior; purpose unconfirmed**
 
----
-
-# Danube Crossing
+## Danube Crossing
 
 The planned mission also crossed the Danube near:
 
@@ -398,7 +393,7 @@ This provided another geographic reference for validating the intended route thr
 
 ![Mission plan findings](images/sherlock-flight-plan-findings.jpg)
 
-*Figure 2: Confirmed mission-plan and flight findings including Citadella, mission item 18, the 30-second hold, Elisabeth Bridge, total flight duration, and crash timestamp.*
+*Figure 2: Mission-plan evidence highlighting mission item 18 and its programmed 30-second loiter, with additional route context including Citadella and the Danube crossing near Elisabeth Bridge.*
 
 ---
 
@@ -421,7 +416,7 @@ The visualization shows:
 
 ### Analysis
 
-The route structure is consistent with a deliberately configured autonomous mission rather than arbitrary movement.
+The route structure is consistent with a deliberately configured mission rather than arbitrary movement.
 
 The geographic relationship between the launch point, Citadella, river crossing, and final crash location provides a coherent reconstruction of the aircraft's operational environment.
 
@@ -431,79 +426,53 @@ The map should be interpreted as an analytical visualization based on the recove
 
 ---
 
-# Takeoff Location
+# Flight Telemetry Summary
 
-Telemetry identified the recorded takeoff coordinates as:
+The parsed flight telemetry established the following key values:
 
-```text
-47.4819399, 19.0191600
-```
+| Finding | Value |
+|---|---|
+| Firmware | `ArduCopter V4.4.4` |
+| Vehicle frame | `QUAD/X` |
+| Takeoff coordinates | `47.4819399, 19.0191600` |
+| Crash coordinates | `47.4903055, 19.0460476` |
+| Total flight duration | `00:10:38.919` |
+| Crash timestamp | `TimeUS 687813098` |
+| Maximum GPS altitude | `377.07 m` |
+| Maximum GPS ground speed | `10.24 m/s` |
+| Ground-impact speed | `12.93254 m/s` |
 
-This location represents the approximate point from which the aircraft began its recorded mission.
-
-In a real investigation, a known launch point could support additional collection efforts such as:
-
-- CCTV review
-- Witness canvassing
-- Searches for additional equipment
-- Controller-location investigation
-- Examination of nearby wireless activity
-
-**Confidence: High**
-
----
-
-# Flight Duration
-
-The recorded time between takeoff and crash was:
-
-```text
-00:10:38.919
-```
-
-Equivalent to approximately:
+The total recorded flight duration was approximately:
 
 ```text
 638.919 seconds
 ```
 
----
-
-# Maximum Recorded Altitude
-
-The maximum recorded GPS altitude was:
-
-```text
-377.07 meters
-```
-
-This represents GPS-reported altitude and should not automatically be interpreted as height above the local terrain.
-
----
-
-# Maximum Recorded Ground Speed
-
-The highest recorded GPS ground speed during the flight was:
-
-```text
-10.24 m/s
-```
-
-Approximately:
+The maximum recorded GPS ground speed of `10.24 m/s` is approximately:
 
 ```text
 36.9 km/h
-```
-
-or:
-
-```text
 22.9 mph
 ```
 
+The recorded impact speed of `12.93254 m/s` is approximately:
+
+```text
+46.6 km/h
+28.9 mph
+```
+
+The altitude value represents GPS-reported altitude and should not automatically be interpreted as height above the local terrain.
+
+### Source Evidence
+
+![Crash telemetry findings](images/sherlock-crash-telemetry-findings.jpg)
+
+*Figure 4: Telemetry evidence supporting the recorded takeoff and crash coordinates, flight duration, maximum altitude, maximum GPS ground speed, and terminal ground-impact event.*
+
 ---
 
-# Crash Event
+# Crash Event and Pre-Impact Analysis
 
 The telemetry identified the crash event at:
 
@@ -523,65 +492,31 @@ A crash-related message recorded:
 SIM Hit ground at 12.93254 m/s
 ```
 
-The reported impact speed was therefore:
+This directly supports the conclusion that a ground-impact event occurred.
 
-```text
-12.93254 m/s
-```
-
-Approximately:
-
-```text
-46.6 km/h
-```
-
-or:
-
-```text
-28.9 mph
-```
-
-### Source Evidence
-
-![Crash telemetry findings](images/sherlock-crash-telemetry-findings.jpg)
-
-*Figure 4: Confirmed telemetry findings including crash coordinates, impact speed, maximum altitude, maximum GPS ground speed, and takeoff coordinates.*
-
-**Confidence: High**
-
----
-
-# Pre-Impact Analysis
-
-One of the most significant terminal telemetry artifacts was:
-
-```text
-SIM Hit ground at 12.93254 m/s
-```
-
-The maximum recorded GPS ground speed elsewhere in the flight was:
+The highest GPS ground speed recorded during the flight was:
 
 ```text
 10.24 m/s
 ```
 
-while the recorded impact value was:
+while the impact-related value was:
 
 ```text
 12.93254 m/s
 ```
 
-These values should not be directly treated as equivalent measurements.
+These values should not be interpreted as equivalent measurements.
 
-GPS ground speed primarily represents horizontal movement across the Earth's surface, while a ground-impact value may reflect additional motion associated with the terminal descent.
+GPS ground speed primarily reflects horizontal motion across the Earth's surface, while the impact-related value may represent a different component or combination of motion during the terminal phase.
 
 ### Assessment
 
-The evidence confirms that the aircraft experienced a substantial ground-impact event.
+The available evidence confirms that the aircraft experienced a substantial ground-impact event.
 
-The currently reviewed telemetry does not, however, establish the precise cause of the crash.
+The reviewed telemetry does not, however, establish the exact mechanical, navigational, or control-system cause of the crash.
 
-Determining root cause would require correlation with additional telemetry such as:
+Additional telemetry that could strengthen root-cause analysis would include:
 
 - Vertical speed
 - Vehicle attitude
@@ -596,7 +531,7 @@ Determining root cause would require correlation with additional telemetry such 
 
 The impact itself is directly supported by the telemetry.
 
-The mechanism that caused the aircraft to enter that terminal state remains unresolved from the reviewed evidence.
+The mechanism that caused the aircraft to enter that terminal state remains unresolved from the evidence reviewed so far.
 
 **Confidence: High for impact; crash cause undetermined**
 
@@ -641,26 +576,6 @@ Recorded Impact Speed
 
 ---
 
-# Key Telemetry Findings
-
-| Metric | Value |
-|---|---|
-| Firmware | `ArduCopter V4.4.4` |
-| Vehicle frame | `QUAD/X` |
-| Takeoff coordinates | `47.4819399, 19.0191600` |
-| Crash coordinates | `47.4903055, 19.0460476` |
-| Flight duration | `00:10:38.919` |
-| Crash timestamp | `TimeUS 687813098` |
-| Maximum GPS altitude | `377.07 m` |
-| Maximum GPS ground speed | `10.24 m/s` |
-| Ground-impact speed | `12.93254 m/s` |
-| Planned landmark | `Citadella` |
-| Planned loiter item | `18` |
-| Planned loiter duration | `30 seconds` |
-| River crossing | Near `Elisabeth Bridge` |
-
----
-
 # Cross-Investigation Correlation
 
 Part 3 recovered operational documentation describing equipment and planning connected to Operation Winter Blackout.
@@ -671,7 +586,7 @@ The subsequent drone evidence aligns with several of those findings.
 |---|---|
 | Modified drone referenced in recovered documents | Drone evidence subsequently recovered |
 | Budapest identified in operational planning | Mission and telemetry geographically located in Budapest |
-| Structured attack planning | Predefined autonomous mission plan |
+| Structured operational planning | Predefined mission-plan file |
 | Technical operational documentation | ArduCopter telemetry and mission commands |
 | Winter Blackout campaign | `AOTR_Winter_Blackout.plan` |
 
@@ -744,7 +659,7 @@ Waypoints / Loiter               ArduCopter Identified
 |---|---|---|
 | Telemetry | `log.bin` | Recorded flight telemetry |
 | Mission Plan | `AOTR_Winter_Blackout.plan` | Programmed mission route |
-| Derived Evidence | `output.json` | Structured telemetry extraction |
+| Derived Artifact | `output.json` | Structured telemetry extraction |
 | Firmware | `ArduCopter V4.4.4` | Identifies ArduPilot ecosystem |
 | Vehicle Frame | `QUAD/X` | X-configuration quadcopter |
 | Landmark | `Citadella` | Significant mission-route reference |
@@ -778,8 +693,6 @@ Flight logs can preserve detailed historical information including:
 
 This can allow investigators to reconstruct aircraft activity even when the physical drone has been damaged.
 
----
-
 ## Mission Intent and Actual Telemetry Should Be Separated
 
 A mission-plan file represents **programmed intent**.
@@ -797,8 +710,6 @@ Comparing them can reveal:
 - Manual intervention
 - Failsafe activation
 - Aborted mission stages
-
----
 
 ## Geographic Evidence Can Generate Physical Leads
 
@@ -831,8 +742,6 @@ As a result, no conclusions can be made regarding:
 - Airframe damage
 - Payload condition
 
----
-
 ## Mission Plan vs. Recorded Activity
 
 The `.plan` file records programmed mission intent.
@@ -841,15 +750,11 @@ A programmed waypoint or loiter does not automatically prove that the aircraft s
 
 Where possible, mission-plan evidence should be validated against telemetry.
 
----
-
 ## Crash Cause
 
 The telemetry confirms that a ground-impact event occurred.
 
 The evidence reviewed so far does not establish the exact cause of the crash.
-
----
 
 ## Geospatial Reconstruction
 
@@ -969,8 +874,6 @@ python3 ~/Downloads/pymavlink-2.4.50/tools/mavlogdump.py \
 
 # Evidence Images
 
-The report uses the following supporting screenshots:
-
 ```text
 images/
 ├── ghidra-arducopter-identification.jpg
@@ -996,3 +899,4 @@ All threat actors, organizations, operational activity, aircraft, and events des
 Real geographic locations referenced by the training data are discussed only as part of analysis of the provided fictional evidence.
 
 The report documents my investigative methodology, evidence handling, binary analysis, telemetry parsing, geospatial reconstruction, findings, and analytical conclusions.
+```

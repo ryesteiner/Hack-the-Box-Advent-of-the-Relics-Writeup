@@ -43,7 +43,7 @@ The investigation focused on identifying threat actors, campaign infrastructure,
 - Defensive recommendations
 - Analytical reporting
 
-[View Part 2 Threat Intelligence Report](./Part2-ThreaIntelligence/README.md)
+[View Part 2 Threat Intelligence Report](./Part2-ThreatIntelligence/README.md)
 
 ---
 

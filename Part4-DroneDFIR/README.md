@@ -1,4 +1,3 @@
-```markdown
 # Advent of The Relics 4 — Drone Forensics Investigation
 
 ## Digital Forensics & Flight Telemetry Reconstruction Report
@@ -899,4 +898,3 @@ All threat actors, organizations, operational activity, aircraft, and events des
 Real geographic locations referenced by the training data are discussed only as part of analysis of the provided fictional evidence.
 
 The report documents my investigative methodology, evidence handling, binary analysis, telemetry parsing, geospatial reconstruction, findings, and analytical conclusions.
-```
